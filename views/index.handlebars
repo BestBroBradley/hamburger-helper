@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="hamburgers" id="uneaten">
+        <div>
+            <h2>Available Burgers:</h2>
+        </div>
+        <div class="burgerList">
+            {{#each eaten}}
+            <div>
+                <h4>{{ name }} |
+                    <button data-id="{{id}}" class="eatBurger">Om Nom Nom</button></h4>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="hamburgers" id="eaten">
+        <div>
+            <h2>Devoured Burgers:</h2>
+        </div>
+        <div class="burgerList">
+            {{#each uneaten}}
+            <div>
+                <h4>{{ name }}</h4>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div>
+    <div id="submitDiv">
+        <h3>Add a new burger:</h3>
+        <form id="submitBurger">
+            <input id="burgerVal" type=text name="name">
+            <button type="submit">Add Burger</button>
+        </form>
+    </div>
+    <div class="burgerImg">
+        <img class="burgerImg" src='assets/images/burgers.png'>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(".eatBurger").on("click", function (event) {
+        var eatBurger = {id: $(this).data("id")}
+        $.ajax("/api/burgers", {
+            type: "PUT",
+            data: eatBurger
+        }).then(() => {
+            location.reload()
+        })
+
+    })
+
+    $("#submitBurger").on("submit", function(event) {
+        event.preventDefault();
+        var newBurger = {name: $("#burgerVal").val().trim()}
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(() => {
+            location.reload()
+        })
+        
+    })
+
+</script>
