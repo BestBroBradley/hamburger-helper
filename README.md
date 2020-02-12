@@ -10,7 +10,7 @@ Link to GitHub repository:
 [https://github.com/BestBroBradley/unit-14-homework](https://github.com/BestBroBradley/unit-14-homework)
 
 Link to deployed Heroku site:
-[https://lit-dawn-12774.herokuapp.com](https://lit-dawn-12774.herokuapp.com)
+[https://protected-reef-60040.herokuapp.com/](https://protected-reef-60040.herokuapp.com/)
 
 # FUNCTIONALITY
 
