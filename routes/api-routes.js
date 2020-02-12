@@ -1,18 +1,19 @@
 const db = require("../models")
 
-module.exports = function (app) {
-    app.get("/"), (req, res) => {
-        db.Hamburger.findAll().then(data => {
+module.exports = function(app) {
+    app.get(("/"), (req, res) => {
+        db.hamburgers.findAll().then(data => {
             const hamburgers = data
             const eatenArray = hamburgers.filter(hamburger => (!hamburger.isEaten))
             const uneatenArray = hamburgers.filter(hamburger => (hamburger.isEaten))
             res.render("index", { eaten: eatenArray, uneaten: uneatenArray })
 
         })
-    }
+    })
 
-    app.put("api/burgers", (req, res) => {
-        db.Hamburger.update({ isEaten: true }, {
+    app.put(("/api/burgers"), (req, res) => {
+        console.log("put")
+        db.hamburgers.update({ isEaten: true }, {
             where: {
                 id: req.body.id
             }
@@ -26,8 +27,9 @@ module.exports = function (app) {
         })
     })
 
-    app.post("api/burgers", (req, res) => {
-        db.Hamburger.create({
+    app.post(("/api/burgers"), (req, res) => {
+        console.log("post")
+        db.hamburgers.create({
             name: req.body.name
         }).then(data => {
             if (!data) {
