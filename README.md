@@ -1,16 +1,16 @@
-# unit-14-homework
-
-Hamburger Helper - Sequelize
-
-# OVERVIEW
+# Hamburger Helper
 
 This is a simple app that highlights the Sequelize CRUD ability of server/client communication.  A user can add a new item to the database and then later update that item.  The program also uses boolean values to determine where eat database item should appear on the page.  The dynamic HTML elements were created using Handlebar templating.
+
+![Screeshot of deployed app](/assets/images/screenshot.png)
 
 Link to GitHub repository:
 [https://github.com/BestBroBradley/unit-14-homework](https://github.com/BestBroBradley/unit-14-homework)
 
 Link to deployed Heroku site:
 [https://protected-reef-60040.herokuapp.com/](https://protected-reef-60040.herokuapp.com/)
+
+Version 1.0
 
 # FUNCTIONALITY
 
