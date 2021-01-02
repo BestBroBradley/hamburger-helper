@@ -40,4 +40,19 @@ module.exports = function(app) {
             }
         })
     })
+
+    app.delete(("/api/burgers"), (req, res) => {
+        console.log("delete")
+        db.hamburgers.delete({
+            name: req.body.name
+        }).then(data => {
+            if (!data) {
+                console.log('Burger not found')
+                return res.status(500).end()
+            } else {
+                console.log('Deleted burger')
+                res.status(200).end()
+            }
+        })
+    })
 }
