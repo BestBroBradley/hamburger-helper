@@ -27,6 +27,20 @@ module.exports = function(app) {
         })
     })
 
+    app.delete(("/api/burgers"), (req, res) => {
+        console.log("delete")
+        db.hamburgers.destroy({ where: { id: req.body.id}
+        }).then(data => {
+            if (!data) {
+                console.log('Burger not found')
+                return res.status(500).end()
+            } else {
+                console.log('Deleted burger')
+                res.status(200).end()
+            }
+        })
+    })
+
     app.post(("/api/burgers"), (req, res) => {
         console.log("post")
         db.hamburgers.create({
@@ -37,21 +51,6 @@ module.exports = function(app) {
             } else {
                 console.log(`Added burger`)
                 res.status(200).end();
-            }
-        })
-    })
-
-    app.delete(("/api/burgers"), (req, res) => {
-        console.log("delete")
-        db.hamburgers.destroy({
-            name: req.body.name
-        }).then(data => {
-            if (!data) {
-                console.log('Burger not found')
-                return res.status(500).end()
-            } else {
-                console.log('Deleted burger')
-                res.status(200).end()
             }
         })
     })
