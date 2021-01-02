@@ -43,7 +43,7 @@ module.exports = function(app) {
 
     app.delete(("/api/burgers"), (req, res) => {
         console.log("delete")
-        db.hamburgers.delete({
+        db.hamburgers.destroy({
             name: req.body.name
         }).then(data => {
             if (!data) {
