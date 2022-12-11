@@ -4,7 +4,7 @@
   "description": "Hamburgers Sequelize",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.5.0",
     "mysql2": "^2.1.0",
